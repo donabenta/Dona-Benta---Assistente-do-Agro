@@ -25,6 +25,7 @@ def input_vc():
     raw_data_speech = request.get_json()["message"]
     return {"response": raw_data_speech}
 
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
