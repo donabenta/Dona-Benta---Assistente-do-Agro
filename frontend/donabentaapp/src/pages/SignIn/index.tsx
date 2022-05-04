@@ -2,6 +2,7 @@ import React from "react";
 import{View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import * as animatable from 'react-native-animatable'
 import {useNavigation} from '@react-navigation/native'
+import usuarioRequests from "../../Requests/usuario.requests";
 
 export default function SiginIn(){
     const navigation = useNavigation();
@@ -39,16 +40,16 @@ export default function SiginIn(){
                 </TouchableOpacity>
 
 
-                
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                style={styles.button}
+                onPress={() => navigation.navigate('Voice')}
+                >
                     <Text style={styles.buttonText}>Logar</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.buttonRegister}
-                
-                onPress={() => navigation.navigate("Cadastro")}
-                >
-                   
+                onPress={() => navigation.navigate('Cadastro')}
+                > 
                     <Text style={styles.registertext}>Não Possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
 

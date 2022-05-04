@@ -20,12 +20,10 @@ export default function Welcome(){
                    source={require('../../Imagens/Logo.png')}
                    style={{width: 350, height:300}}
                     resizeMode='center'
-                    
-                
                 />
             </View>
 
-            <animatable.View animation="fadeInUp" delay={20} style={styles.containerForm}>
+            <animatable.View animation="fadeInUp" delay={60} style={styles.containerForm}>
                 <Text style={styles.title}>Sua </Text>
 
                 <Text style={styles.title2}>Assistente Virtual</Text>
@@ -49,15 +47,12 @@ const styles= StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:"#98fb98"
-
     },
     containerLogo: {
         flex:2,
         backgroundColor:"#0000",
         justifyContent: 'center',
         alignItems: 'center',
-
-
     },
     containerForm:{
         flex:2,
@@ -66,17 +61,16 @@ const styles= StyleSheet.create({
         borderTopRightRadius: 25,
         paddingStart:'10%',
         paddingEnd: '10%'
-
     },
+
     title: {
         fontSize:24,
         fontWeight:'bold',
         marginTop:100,
         marginBottom: 12,
         alignSelf: 'center',
-        
-
     },
+
     title2: {
         fontSize:24,
         fontWeight:'bold',
@@ -84,8 +78,8 @@ const styles= StyleSheet.create({
         marginBottom: 5,
         alignSelf: 'center',
         marginVertical:2,
-
     },
+
     title3: {
         fontSize:24,
         fontWeight:'bold',
@@ -95,14 +89,12 @@ const styles= StyleSheet.create({
         marginVertical:2,
 
     },
-    
-
- 
 
     text :{
         color: '#ffff'
 
     },
+
     button: {
         position: 'absolute',
         backgroundColor:'#000000',
@@ -113,8 +105,8 @@ const styles= StyleSheet.create({
         bottom: '15%',
         alignItems: 'center',
         justifyContent: 'center'
-
     },
+
     buttonText:{
         color:"#ffff",
         fontSize:18,
