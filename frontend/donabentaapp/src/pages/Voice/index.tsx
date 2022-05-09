@@ -10,7 +10,17 @@ TextInput
 import * as animatable from 'react-native-animatable'
 import {useNavigation} from '@react-navigation/native'
 
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+
+
+
+let listening = false;
+
+
 export default function Voice(){
+    const { transcript } = useSpeechRecognition()
+    const { resetTranscript } = useSpeechRecognition()
+
     return(
         <View style={styles.container}>
            
@@ -26,12 +36,29 @@ export default function Voice(){
             <animatable.View animation="fadeInUp" delay={500} style={styles.containerForm}>
                 <Text style={styles.title}>Em que posso te ajudar?</Text>
                 <View>
-                <animatable.Image
-                 animation="flipInY" delay={30}
-                   source={require('../../Imagens/Logo1.png')}
-                   style={{width: 300, height:200, marginTop: '10%'}}
-                    resizeMode='center'
-                />
+                <button style={{backgroundColor: '#98fb98', border: 0}} onClick = {() => {
+                    if (listening === false) {
+                        listening = true;
+                        SpeechRecognition.startListening();
+
+                    }
+                    else {
+                        listening = false;
+                        console.log(transcript); // Uso do transcript: Requisição para API
+                        resetTranscript();
+                        SpeechRecognition.stopListening();
+                    }
+
+                }}>
+                    <animatable.Image
+                    animation="flipInY" delay={30}
+                    source={require('../../Imagens/Logo1.png')}
+                    style={{width: 300, height:200, marginTop: '10%', marginLeft: "-12px"}}
+                        resizeMode='center'
+                        
+                    />
+                </button>
+                
             </View>
 
                 
@@ -72,6 +99,7 @@ const styles = StyleSheet.create({
         marginTop: '-20%',
         paddingStart: '10%',
         paddingEnd: '10%',
+
         backgroundColor: '#98fb98',
         flex: 2,
     },
@@ -82,4 +110,4 @@ const styles = StyleSheet.create({
         paddingLeft: 30
     },
 
-})
+});
