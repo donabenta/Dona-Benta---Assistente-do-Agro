@@ -26,6 +26,7 @@ export default function Cadastro(){
             
             />
         </View>
+
         <animatable.View animation="fadeInLeft" delay={500} style={styles.containerheader}>
             <Text style={styles.message}>Cadastre-se</Text>
         </animatable.View>
@@ -54,13 +55,18 @@ export default function Cadastro(){
                 <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.navigate("SignIn")}
-                    >
+                >
         
                     <Text style={styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
 
-               
+               <TouchableOpacity >
+                    <Text style={styles.buttonBack}onPress={() => navigation.navigate('Welcome')}
+                    >Voltar</Text>
+                </TouchableOpacity>
             </animatable.View>
+
+            
             
            
         </View>
@@ -115,5 +121,17 @@ const styles= StyleSheet.create({
         color:"#ffff",
         fontSize:18,
         fontWeight: 'bold',
+    },
+
+    buttonBack:{
+        position: 'absolute',
+        fontSize: 15,
+        width: 100,
+        height: 650,
+        alignItems: 'baseline',
+        justifyContent: 'flex-start',
+        right: 230,
+        bottom: 30,
+        color: '#ffff'
     }
 })
