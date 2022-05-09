@@ -16,7 +16,7 @@ export default function Welcome(){
           
             <View>
                 <animatable.Image
-                 animation="flipInY" delay={30}
+                 animation="zoomInUp" delay={50}
                    source={require('../../Imagens/Logo.png')}
                    style={{width: 350, height:300}}
                     resizeMode='center'

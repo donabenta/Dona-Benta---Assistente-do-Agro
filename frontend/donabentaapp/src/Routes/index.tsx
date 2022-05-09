@@ -4,6 +4,9 @@ import Welcome from '../pages/Welcome'
 import SignIn from '../pages/SignIn'
 import Cadastro from '../pages/Cadastro'
 import Voice from '../pages/Voice'
+import Esqueceu from '../pages/Esqueceu'
+
+
 
 
 
@@ -31,6 +34,11 @@ export default function Routes(){
            <Stack.Screen
             name= "Voice"
             component={Voice}
+            options={{headerShown: false}}
+           />
+           <Stack.Screen
+            name= "Esqueceu"
+            component={Esqueceu}
             options={{headerShown: false}}
            />
 

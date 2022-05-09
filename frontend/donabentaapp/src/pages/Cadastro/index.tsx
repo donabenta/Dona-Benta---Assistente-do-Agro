@@ -18,7 +18,7 @@ export default function Cadastro(){
 
         <View>
         <animatable.Image
-             animation=""
+             animation="zoomInUp"
                source={require('../../Imagens/Logo.png')}
                style={{width:350, height:300}}
                 resizeMode='center'

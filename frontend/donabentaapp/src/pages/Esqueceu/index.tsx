@@ -4,8 +4,9 @@ import * as animatable from 'react-native-animatable'
 import {useNavigation} from '@react-navigation/native'
 import usuarioRequests from "../../Requests/usuario.requests";
 
-export default function SiginIn(){
+export default function Esqueceu(){
     const navigation = useNavigation();
+
     return(
         
         <View style={styles.container}>
@@ -13,7 +14,7 @@ export default function SiginIn(){
             <View>
             <animatable.Image
                  animation="zoomInUp"
-                   source={require('../../Imagens/Logo.png')}
+                   source={require('../../Imagens/Logo1.png')}
                    style={{width:350, height:300}}
                     resizeMode='center'
                     
@@ -21,7 +22,8 @@ export default function SiginIn(){
                 />
             </View>
             <animatable.View animation="fadeInLeft" delay={500} style={styles.containerheader}>
-                <Text style={styles.message}>Bem Vindo (a)</Text>
+                <Text style={styles.message}>Redefinir sua Senha </Text>
+                <Text style={styles.message2}>Para redefinir sua senha, informe sua conta de email</Text>
             </animatable.View>
 
             <animatable.View animation="fadeInUp" style={styles.containerform}>
@@ -30,33 +32,20 @@ export default function SiginIn(){
                 placeholder="Digite seu email..."
                 style={styles.input}
                 />
-                <Text style={styles.title}>Senha </Text>
-                <TextInput
-                placeholder="Sua senha..."
-                style={styles.input}
-                />
-                 <TouchableOpacity style={styles.buttonEsqueceu}
-                 onPress={() => navigation.navigate('Esqueceu')}>
-                    <Text style={styles.esqueceuText}>Esqueceu a senha?</Text>
-                </TouchableOpacity>
-
-
+                 
                 <TouchableOpacity 
                 style={styles.button}
-                onPress={() => navigation.navigate('Voice')}
+                onPress={() => navigation.navigate('SignIn')}
                 >
-                    <Text style={styles.buttonText}>Logar</Text>
+                    <Text style={styles.buttonText} >Confirmar</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.buttonRegister}
-                onPress={() => navigation.navigate('Cadastro')}
-                > 
-                    <Text style={styles.registertext}>Não Possui uma conta? Cadastre-se</Text>
-                </TouchableOpacity>
-
+               
+                   
 
             </animatable.View>
         </View>
+    
     );
 }
 const styles= StyleSheet.create({
@@ -74,6 +63,13 @@ const styles= StyleSheet.create({
     message:{
         fontSize: 28,
         fontWeight: 'bold',
+        color: '#fff',
+    },
+    message2:{
+        fontSize: 20,
+        marginTop:'15%',
+        fontWeight: 'bold',
+        justifyContent:'center',
         color: '#fff',
     },
     containerform:{
