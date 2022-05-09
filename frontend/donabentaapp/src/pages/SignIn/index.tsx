@@ -54,6 +54,12 @@ export default function SiginIn(){
                     <Text style={styles.registertext}>Não Possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
 
+                <TouchableOpacity 
+                style={styles.button}
+                onPress={() => navigation.navigate('Welcome')}
+                >
+                    <Text style={styles.buttonBack}>Voltar</Text>
+                </TouchableOpacity>
 
             </animatable.View>
         </View>
@@ -131,6 +137,18 @@ const styles= StyleSheet.create({
         marginTop: 5,
         color:'#00bfff',
 
+    },
+
+    buttonBack:{
+        position: 'absolute',
+        fontSize: 15,
+        width: 100,
+        height: 720,
+        alignItems: 'baseline',
+        justifyContent: 'flex-start',
+        right: 230,
+        bottom: 30,
+        color: '#ffff'
     }
     
 })

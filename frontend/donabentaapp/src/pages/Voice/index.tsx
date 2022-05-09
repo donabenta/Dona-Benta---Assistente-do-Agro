@@ -31,6 +31,8 @@ export default function Voice(){
                     Olá, eu sou a Dona Benta
                 </Text> 
                 
+                
+
             </animatable.View>
              
             <animatable.View animation="fadeInUp" delay={500} style={styles.containerForm}>
@@ -60,7 +62,6 @@ export default function Voice(){
                 </button>
                 
             </View>
-
                 
             </animatable.View>
 
@@ -109,5 +110,17 @@ const styles = StyleSheet.create({
         marginTop: 70,
         paddingLeft: 30
     },
+
+    buttonBack:{
+        position: 'absolute',
+        fontSize: 15,
+        width: 100,
+        height: 600,
+        alignItems: 'baseline',
+        justifyContent: 'flex-start',
+        right: 200,
+        bottom: 30,
+        color: '#ffff'
+    }
 
 });
