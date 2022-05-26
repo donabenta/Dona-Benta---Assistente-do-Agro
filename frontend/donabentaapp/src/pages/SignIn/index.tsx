@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import{View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import * as animatable from 'react-native-animatable'
 import {useNavigation} from '@react-navigation/native'
@@ -6,6 +6,15 @@ import usuarioRequests from "../../Requests/usuario.requests";
 
 export default function SiginIn(){
     const navigation = useNavigation();
+    const [name, setName] = useState(" ");
+    const [password, setPassword] = useState(" ");
+
+    const handleEmailInput = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setName(event.target.value);
+    }
+    const handlePasswordInput = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setPassword(event.target.value);
+    }
     return(
         
         <View style={styles.container}>
@@ -29,11 +38,13 @@ export default function SiginIn(){
                 <TextInput
                 placeholder="Digite seu email..."
                 style={styles.input}
+                onChange={handleEmailInput}
                 />
                 <Text style={styles.title}>Senha </Text>
                 <TextInput
                 placeholder="Sua senha..."
                 style={styles.input}
+                onChange={handlePasswordInput}
                 />
                  <TouchableOpacity style={styles.buttonEsqueceu}
                  onPress={() => navigation.navigate('Esqueceu')}>
@@ -43,13 +54,28 @@ export default function SiginIn(){
 
                 <TouchableOpacity 
                 style={styles.button}
-                onPress={() => navigation.navigate('Voice')}
+                onPress={async () => {
+                    
+                    
+                    let isLoginRight = await usuarioRequests.login({email: name, password: password})
+                    
+                    if (isLoginRight) {
+                        navigation.navigate("Voice");
+                    }
+                    else {
+                        alert("Login incorreto, tente novamente.");
+                    }
+                    
+                    
+                }}
                 >
                     <Text style={styles.buttonText}>Logar</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.buttonRegister}
-                onPress={() => navigation.navigate('Cadastro')}
+                onPress={() => {
+                    alert(name);
+                }}
                 > 
                     <Text style={styles.registertext}>Não Possui uma conta? Cadastre-se</Text>
                 </TouchableOpacity>
